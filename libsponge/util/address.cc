@@ -4,6 +4,7 @@
 
 #include <arpa/inet.h>
 #include <cstring>
+#include <array>
 #include <memory>
 #include <netdb.h>
 #include <stdexcept>
