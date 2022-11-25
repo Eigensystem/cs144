@@ -17,7 +17,7 @@ class ByteStream {
     // that's a sign that you probably want to keep exploring
     // different approaches.
     std::string stream = "";
-    
+
     int cap;
     int size = 0;
     int written = 0, poped = 0;

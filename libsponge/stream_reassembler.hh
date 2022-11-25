@@ -5,6 +5,27 @@
 
 #include <cstdint>
 #include <string>
+#include <map>
+#include <vector>
+
+class WaitManager {
+  private:
+    std::map<size_t, std::string> _substrings = {};
+    std::vector<bool> _manager = {std::vector<bool> (65535, 0)};
+    // std::vector<bool> _manager = {};
+
+    size_t _unassembled_bytes = 0;
+    size_t _start = 0;
+  public:
+    // WaitManager();
+    // ~WaitManager();
+
+    void add_string(size_t index, std::string data, size_t idx);
+    std::string pop_string(size_t last_idx, size_t idx);
+    size_t unassembled_bytes() const { return _unassembled_bytes; }
+    bool empty() const { return _substrings.empty(); }
+};
+
 
 //! \brief A class that assembles a series of excerpts from a byte stream (possibly out of order,
 //! possibly overlapping) into an in-order byte stream.
@@ -14,6 +35,12 @@ class StreamReassembler {
 
     ByteStream _output;  //!< The reassembled in-order byte stream
     size_t _capacity;    //!< The maximum number of bytes
+    size_t _idx = 0, _last_idx = 0;
+    // size_t _unassembled_bytes = 0;
+    size_t _eof = SIZE_MAX;
+    // std::map<size_t, std::string> _reassembler = {};
+    WaitManager _manager = {};
+
 
   public:
     //! \brief Construct a `StreamReassembler` that will store up to `capacity` bytes.

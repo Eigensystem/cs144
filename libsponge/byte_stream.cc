@@ -1,4 +1,5 @@
 #include "byte_stream.hh"
+
 #include <iostream>
 // Dummy implementation of a flow-controlled in-memory byte stream.
 
@@ -7,21 +8,16 @@
 
 // You will need to add private members to the class declaration in `byte_stream.hh`
 
-template <typename... Targs>
-void DUMMY_CODE(Targs &&... /* unused */) {}
-
 using namespace std;
 
-ByteStream::ByteStream(const size_t capacity) :
-    cap(capacity) { }
+ByteStream::ByteStream(const size_t capacity) : cap(capacity) {}
 
 size_t ByteStream::write(const string &data) {
     int accept;
     if (data.size() <= remaining_capacity()) {
         accept = data.size();
         this->stream += data;
-    }
-    else {
+    } else {
         accept = remaining_capacity();
         this->stream += data.substr(0, accept);
     }
@@ -34,8 +30,7 @@ string ByteStream::peek_output(const size_t len) const {
     string str;
     if (len > this->stream.size()) {
         str = this->stream;
-    }
-    else {
+    } else {
         str = this->stream.substr(0, len);
     }
     return str;
@@ -46,8 +41,7 @@ void ByteStream::pop_output(const size_t len) {
     if (len > this->stream.size()) {
         poped += this->stream.size();
         this->stream = "";
-    }
-    else {
+    } else {
         this->stream = this->stream.substr(len, this->stream.size() - len);
         poped += len;
     }
@@ -59,12 +53,11 @@ void ByteStream::pop_output(const size_t len) {
 std::string ByteStream::read(const size_t len) {
     string str;
     int pop;
-    if(len > this->stream.size()) {
+    if (len > this->stream.size()) {
         pop = this->stream.size();
         str = this->stream;
         this->stream = "";
-    }
-    else {
+    } else {
         str = this->stream.substr(0, len);
         this->stream = this->stream.substr(len, this->stream.size() - len);
         pop = len;
