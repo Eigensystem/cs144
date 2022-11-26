@@ -6,25 +6,6 @@
 #include <cstdint>
 #include <string>
 #include <map>
-#include <vector>
-
-class WaitManager {
-  private:
-    std::map<size_t, std::string> _substrings = {};
-    std::vector<bool> _manager = {std::vector<bool> (65535, 0)};
-    // std::vector<bool> _manager = {};
-
-    size_t _unassembled_bytes = 0;
-    size_t _start = 0;
-  public:
-    // WaitManager();
-    // ~WaitManager();
-
-    void add_string(size_t index, std::string data, size_t idx);
-    std::string pop_string(size_t last_idx, size_t idx);
-    size_t unassembled_bytes() const { return _unassembled_bytes; }
-    bool empty() const { return _substrings.empty(); }
-};
 
 
 //! \brief A class that assembles a series of excerpts from a byte stream (possibly out of order,
@@ -33,14 +14,17 @@ class StreamReassembler {
   private:
     // Your code here -- add private members as necessary.
 
-    ByteStream _output;  //!< The reassembled in-order byte stream
-    size_t _capacity;    //!< The maximum number of bytes
-    size_t _idx = 0, _last_idx = 0;
-    // size_t _unassembled_bytes = 0;
-    size_t _eof = SIZE_MAX;
-    // std::map<size_t, std::string> _reassembler = {};
-    WaitManager _manager = {};
+    ByteStream _output;     //!< The reassembled in-order byte stream
+    size_t _capacity;       //!< The maximum number of bytes
+    size_t _current = 0;    //!< The next byte index to put into output stream
+    size_t _eof = SIZE_MAX; //!< The index of the last byte in stream
+    size_t _unassembled_bytes = 0;
+    // string _reassembler = "";
+    std::map<size_t, std::string> _substrings = {};
+    std::map<size_t, size_t> _manager = {};
 
+    std::string merge_substr(std::string data, size_t start, size_t end);
+    void cap_limit();
 
   public:
     //! \brief Construct a `StreamReassembler` that will store up to `capacity` bytes.
