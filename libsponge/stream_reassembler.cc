@@ -63,8 +63,6 @@ string StreamReassembler::merge_substr(string data, size_t start, size_t end) {
       ( fwd && bck && left->second < start && right->second <= end)) {
     valid = 1;
     _unassembled_bytes += data.size();
-    cout << "expand\n";
-    fflush(stdout);
   }
   //backward merge
   if (bck && right->first >= start && right->second > end) {
@@ -72,8 +70,6 @@ string StreamReassembler::merge_substr(string data, size_t start, size_t end) {
     end = _manager[right->first];
     data += _substrings[right->first].substr(upper - right->first);
     _unassembled_bytes += data.size();
-    cout << "backward merge\n";
-    fflush(stdout);
   }
   //forward merge
   if (fwd && start <= left->second && left->second < end) {
@@ -86,27 +82,11 @@ string StreamReassembler::merge_substr(string data, size_t start, size_t end) {
     else {
       _unassembled_bytes += upper - left->second;
     }
-    cout << "forward merge\n";
-    fflush(stdout);
-  }
-
-  // log
-  // cout << data << endl;
-  cout << "cap:" << _capacity << " current:" << _current << endl;
-  if (fwd && bck) {
-    cout <<"fwd:"<<fwd<<" bck:"<<bck<<" \nforward merge align:"<< left->second << " bck merge align:" << right->first << "\n";
-  }
-  cout << "raw start:"<<lower << " raw end:" << upper << " \nmerged start:" << start << " merged end:" << end << endl;
-  fflush(stdout);
-
-  for (auto i: _manager) {
-    cout << i.first << " " << i.second << "\n";
   }
 
   //erase manager element
   auto i = _manager.lower_bound(lower);
   while (i != _manager.upper_bound(upper)) {
-    cout <<"\n1";
     _manager.erase(i++);
   }
   //erase substrings element
@@ -120,14 +100,7 @@ string StreamReassembler::merge_substr(string data, size_t start, size_t end) {
     _manager[start] = end;
     _substrings[start] = data;
   }
-
-  cout << "erase 2\n";fflush(stdout);
-
   cap_limit();
-  cout << "cap limit\n"; 
-  cout << "-------------------------------------------------------------------\n";
-  fflush(stdout);
-
   if (_substrings.begin()->first == _current) {
     string str = _substrings.begin()->second;
     _substrings.erase(_substrings.begin());
