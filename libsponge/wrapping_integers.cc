@@ -1,12 +1,8 @@
 #include "wrapping_integers.hh"
-#include <iostream>
 // Dummy implementation of a 32-bit wrapping integer
 
 // For Lab 2, please replace with a real implementation that passes the
 // automated checks run by `make check_lab2`.
-
-template <typename... Targs>
-void DUMMY_CODE(Targs &&... /* unused */) {}
 
 using namespace std;
 
@@ -29,12 +25,13 @@ WrappingInt32 wrap(uint64_t n, WrappingInt32 isn) {
 //! and the other stream runs from the remote TCPSender to the local TCPReceiver and
 //! has a different ISN.
 uint64_t unwrap(WrappingInt32 n, WrappingInt32 isn, uint64_t checkpoint) {
-    uint32_t wrapped_abs = n - isn;
-    // cout << "\nn:" << n <<" isn:" << isn << " num:" << num << endl;
-    uint32_t wrapped_chk = checkpoint << 32 >> 32;
-    int32_t off = wrapped_abs - wrapped_chk;
-    // cout << checkpoint << " " << off << endl;
-    if (checkpoint <= INT32_MAX) {
+    uint32_t wrapped_abs = n - isn;     //! \variable: absolute sequence number % (2 ^ 32)
+    uint32_t wrapped_chk = checkpoint << 32 >> 32; //! \variable: checkpoint % (2 ^ 32)
+    //! \variable: transform uint32 to int32: find the closest abs offset to checkpoint
+    int32_t off = wrapped_abs - wrapped_chk; 
+    //! \note: if off is minus, checkpoint + minus must be bigger than 0
+    //! \note: overflow check
+    if ((checkpoint <= INT32_MAX) && (checkpoint + off > UINT32_MAX)) {
         return checkpoint + static_cast<uint32_t>(off);
     }
     else {
