@@ -25,16 +25,17 @@ WrappingInt32 wrap(uint64_t n, WrappingInt32 isn) {
 //! and the other stream runs from the remote TCPSender to the local TCPReceiver and
 //! has a different ISN.
 uint64_t unwrap(WrappingInt32 n, WrappingInt32 isn, uint64_t checkpoint) {
-    uint32_t wrapped_abs = n - isn;     //! \variable: absolute sequence number % (2 ^ 32)
-    uint32_t wrapped_chk = checkpoint << 32 >> 32; //! \variable: checkpoint % (2 ^ 32)
+    //! \variable: absolute sequence number % (2 ^ 32)
+    uint32_t wrapped_abs = n - isn;
+    //! \variable: checkpoint % (2 ^ 32)
+    uint32_t wrapped_chk = checkpoint << 32 >> 32;
     //! \variable: transform uint32 to int32: find the closest abs offset to checkpoint
-    int32_t off = wrapped_abs - wrapped_chk; 
+    int32_t off = wrapped_abs - wrapped_chk;
     //! \note: if off is minus, checkpoint + minus must be bigger than 0
     //! \note: overflow check
     if ((checkpoint <= INT32_MAX) && (checkpoint + off > UINT32_MAX)) {
         return checkpoint + static_cast<uint32_t>(off);
-    }
-    else {
+    } else {
         return checkpoint + off;
     }
 }
