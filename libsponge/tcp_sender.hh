@@ -66,24 +66,18 @@ class TCPSender {
     uint64_t _next_seqno{0};
 
     std::map<size_t, TCPSegment> _retransmissionMng{};
-
     RetransmissionTimer _timer;
 
     size_t _window_size = 0;
-
     size_t _max_abs_ackno = 0;
-
-    bool _finished = 0;
-
-    bool _zero_window = 0;
-
     unsigned int _retransmissions = 0;
 
-    void create_segment(size_t size);
+    bool _finished = 0;
+    bool _zero_window = 0;
 
     bool syn() { return _next_seqno == 0; }
-
     bool fin() { return _stream.eof() && _stream.buffer_empty(); }
+    void create_segment(size_t size);
 
   public:
     //! Initialize a TCPSender
