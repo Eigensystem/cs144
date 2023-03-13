@@ -7,7 +7,40 @@
 #include "wrapping_integers.hh"
 
 #include <functional>
+#include <map>
 #include <queue>
+
+class RetransmissionTimer {
+  private:
+    long int _countdown;
+    size_t _timeout, _init_time;
+    bool _on = 0;
+
+  public:
+    RetransmissionTimer() = default;
+    RetransmissionTimer(const size_t init_timeout)
+        : _countdown(init_timeout), _timeout(init_timeout), _init_time(init_timeout) {}
+
+    //! \note return 1 when expired
+    bool tick(const size_t period_in_ms);
+    bool statu() { return _on; }
+    void start() {
+        _on = true;
+        _timeout = _init_time;
+        _countdown = _timeout;
+    }
+    //! \note stop when all segments has been acknowledged
+    void stop() { _on = false; }
+    //! \note set countdown to timeout
+    void reset() { _countdown = _timeout; }
+    //! \note double the timeout and reset countdown
+    void exp_backoff() { _timeout *= 2; }
+    //! \note set timeout to initial time
+    void init_time(const size_t init_timeout) {
+        _timeout = init_timeout;
+        _init_time = init_timeout;
+    }
+};
 
 //! \brief The "sender" part of a TCP implementation.
 
@@ -31,6 +64,26 @@ class TCPSender {
 
     //! the (absolute) sequence number for the next byte to be sent
     uint64_t _next_seqno{0};
+
+    std::map<size_t, TCPSegment> _retransmissionMng{};
+
+    RetransmissionTimer _timer;
+
+    size_t _window_size = 0;
+
+    size_t _max_abs_ackno = 0;
+
+    bool _finished = 0;
+
+    bool _zero_window = 0;
+
+    unsigned int _retransmissions = 0;
+
+    void create_segment(size_t size);
+
+    bool syn() { return _next_seqno == 0; }
+
+    bool fin() { return _stream.eof() && _stream.buffer_empty(); }
 
   public:
     //! Initialize a TCPSender
@@ -66,10 +119,10 @@ class TCPSender {
     //! \brief How many sequence numbers are occupied by segments sent but not yet acknowledged?
     //! \note count is in "sequence space," i.e. SYN and FIN each count for one byte
     //! (see TCPSegment::length_in_sequence_space())
-    size_t bytes_in_flight() const;
+    size_t bytes_in_flight() const { return _next_seqno - _max_abs_ackno; };
 
     //! \brief Number of consecutive retransmissions that have occurred in a row
-    unsigned int consecutive_retransmissions() const;
+    unsigned int consecutive_retransmissions() const { return _retransmissions; };
 
     //! \brief TCPSegments that the TCPSender has enqueued for transmission.
     //! \note These must be dequeued and sent by the TCPConnection,
