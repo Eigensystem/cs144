@@ -30,8 +30,6 @@ void TCPReceiver::segment_received(const TCPSegment &seg) {
 }
 
 optional<WrappingInt32> TCPReceiver::ackno() const {
-    // cout << "\n" << stream_out().bytes_written() + 1 << " "<< _isn<<endl;
-    // cout << wrap(stream_out().bytes_written() + 1, _isn);
     if (_syn) {
         uint64_t ackno = (_fin && !_reassembler.unassembled_bytes()) ? stream_out().bytes_written() + 2
                                                                      : stream_out().bytes_written() + 1;
