@@ -62,10 +62,6 @@ void TCPSender::fill_window() {
     int payload_size = _window_size > _stream.buffer_size() ? _stream.buffer_size() : _window_size;
     create_segment(payload_size);
   }
-  // if (!finished && fin()) {
-    // create_segment(0);
-    // finished = 1;
-  // }
 }
 
 //! \param ackno The remote receiver's ackno (acknowledgment number)
