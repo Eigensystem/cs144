@@ -101,6 +101,7 @@ _socat_connect () {
 }
 
 _rt_listen () {
+    echo "coproc $3 -l $4 ${SERVER_PORT} >$1 <$2 && sleep 0.1"
     coproc $3 -l $4 ${SERVER_PORT} >"$1" <"$2" && sleep 0.1
     set +u
     [ -z "$COPROC_PID" ] && { echo "Error in _rt_listen"; exit 1; }
@@ -108,6 +109,7 @@ _rt_listen () {
 }
 
 _rt_connect () {
+    echo "$3 $4 ${SERVER_PORT} >$1 <$2"
     $3 $4 ${SERVER_PORT} >"$1" <"$2" || { echo "Error in _rt_connect"; exit 1; }
 }
 

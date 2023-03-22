@@ -5,7 +5,7 @@
 // automated checks run by `make check_lab1`.
 
 // You will need to add private members to the class declaration in `stream_reassembler.hh`
-
+#include <iostream>
 using namespace std;
 
 
@@ -16,7 +16,7 @@ void StreamReassembler::cap_limit() {
     size_t release_size = _output.buffer_size() + _unassembled_bytes - _capacity;
     auto mgr_last = _manager.rbegin();
     auto str_last = _substrings.rbegin();
-    while (release_size) {
+    while (release_size && !_manager.empty() && !_substrings.empty()) {
       size_t size = mgr_last->second - mgr_last->first;
       if (size > release_size) {
         mgr_last->second -= release_size;
@@ -99,7 +99,8 @@ string StreamReassembler::merge_substr(string data, size_t start, size_t end) {
     _manager[start] = end;
     _substrings[start] = data;
   }
-  cap_limit();
+  // if (!_manager.empty() && !_substrings.empty())
+    cap_limit();
   if (_substrings.begin()->first == _current) {
     string str = _substrings.begin()->second;
     _substrings.erase(_substrings.begin());

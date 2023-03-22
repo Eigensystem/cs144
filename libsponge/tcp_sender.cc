@@ -67,11 +67,11 @@ void TCPSender::fill_window() {
 //! \param ackno The remote receiver's ackno (acknowledgment number)
 //! \param window_size The remote receiver's advertised window size
 void TCPSender::ack_received(const WrappingInt32 ackno, const uint16_t window_size) {
+  if (window_size == 0) _zero_window = 1;
+  else _zero_window = 0;
   size_t abs_ackno = unwrap(ackno, _isn, _stream.bytes_written());
   if (abs_ackno > _next_seqno) return;
   _window_size = abs_ackno + window_size > _next_seqno ? abs_ackno + window_size - _next_seqno : 0;
-  if (_window_size == 0) _zero_window = 1;
-  else _zero_window = 0;
   if (abs_ackno > _max_abs_ackno) {
     _max_abs_ackno = abs_ackno;
     _retransmissionMng.erase(_retransmissionMng.begin(), _retransmissionMng.upper_bound(abs_ackno));

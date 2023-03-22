@@ -9,8 +9,9 @@
       "type": "lldb",
       "request": "launch",
       "name": "Debug",
-      "program": "${workspaceFolder}/build/tests/fsm_ack_rst_relaxed",
-      "args": [],
+      "program": "${workspaceFolder}/build/apps/tcp_udp",
+      // "args": ["-t 12", "-w 8192", "169.254.144.1", "1204", ">\"/dev/null\" <\"/tmp/tmp.1Hv0zYkU1t\""],
+      "args": ["-t", "12", "-w", "8192", "169.254.144.1", "1204", ">\"/dev/null\"", "<\"/tmp/tmp.1Hv0zYkU1t\""],
       "cwd": "${workspaceFolder}"
     }
   ]
