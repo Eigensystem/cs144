@@ -1,0 +1,745 @@
+--   NOTE: You can choose a build type by calling cmake with one of:
+--     -DCMAKE_BUILD_TYPE=Release   -- full optimizations
+--     -DCMAKE_BUILD_TYPE=Debug     -- better debugging experience in gdb
+--     -DCMAKE_BUILD_TYPE=RelASan   -- full optimizations plus address and undefined-behavior sanitizers
+--     -DCMAKE_BUILD_TYPE=DebugASan -- debug plus sanitizers
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/eigensystem/Networking/cs144/build
+--   NOTE: You can choose a build type by calling cmake with one of:
+--     -DCMAKE_BUILD_TYPE=Release   -- full optimizations
+--     -DCMAKE_BUILD_TYPE=Debug     -- better debugging experience in gdb
+--     -DCMAKE_BUILD_TYPE=RelASan   -- full optimizations plus address and undefined-behavior sanitizers
+--     -DCMAKE_BUILD_TYPE=DebugASan -- debug plus sanitizers
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/eigensystem/Networking/cs144/build
+[100%] Testing the TCP connection...
+Test project /home/eigensystem/Networking/cs144/build
+        Start   1: t_wrapping_ints_cmp
+  1/162 Test   #1: t_wrapping_ints_cmp ..............   Passed    0.00 sec
+        Start   2: t_wrapping_ints_unwrap
+  2/162 Test   #2: t_wrapping_ints_unwrap ...........   Passed    0.00 sec
+        Start   3: t_wrapping_ints_wrap
+  3/162 Test   #3: t_wrapping_ints_wrap .............   Passed    0.00 sec
+        Start   4: t_wrapping_ints_roundtrip
+  4/162 Test   #4: t_wrapping_ints_roundtrip ........   Passed    0.31 sec
+        Start   5: t_recv_connect
+  5/162 Test   #5: t_recv_connect ...................   Passed    0.00 sec
+        Start   6: t_recv_transmit
+  6/162 Test   #6: t_recv_transmit ..................   Passed    0.06 sec
+        Start   7: t_recv_window
+  7/162 Test   #7: t_recv_window ....................   Passed    0.00 sec
+        Start   8: t_recv_reorder
+  8/162 Test   #8: t_recv_reorder ...................   Passed    0.00 sec
+        Start   9: t_recv_close
+  9/162 Test   #9: t_recv_close .....................   Passed    0.00 sec
+        Start  10: t_recv_special
+ 10/162 Test  #10: t_recv_special ...................   Passed    0.00 sec
+        Start  11: t_send_connect
+ 11/162 Test  #11: t_send_connect ...................   Passed    0.00 sec
+        Start  12: t_send_transmit
+ 12/162 Test  #12: t_send_transmit ..................   Passed    0.05 sec
+        Start  13: t_send_retx
+ 13/162 Test  #13: t_send_retx ......................   Passed    0.00 sec
+        Start  14: t_send_window
+ 14/162 Test  #14: t_send_window ....................   Passed    0.01 sec
+        Start  15: t_send_ack
+ 15/162 Test  #15: t_send_ack .......................   Passed    0.00 sec
+        Start  16: t_send_close
+ 16/162 Test  #16: t_send_close .....................   Passed    0.00 sec
+        Start  17: t_send_extra
+ 17/162 Test  #17: t_send_extra .....................   Passed    0.01 sec
+        Start  18: t_strm_reassem_single
+ 18/162 Test  #18: t_strm_reassem_single ............   Passed    0.00 sec
+        Start  19: t_strm_reassem_seq
+ 19/162 Test  #19: t_strm_reassem_seq ...............   Passed    0.00 sec
+        Start  20: t_strm_reassem_dup
+ 20/162 Test  #20: t_strm_reassem_dup ...............   Passed    0.01 sec
+        Start  21: t_strm_reassem_holes
+ 21/162 Test  #21: t_strm_reassem_holes .............   Passed    0.00 sec
+        Start  22: t_strm_reassem_many
+ 22/162 Test  #22: t_strm_reassem_many ..............   Passed    0.10 sec
+        Start  23: t_strm_reassem_overlapping
+ 23/162 Test  #23: t_strm_reassem_overlapping .......   Passed    0.00 sec
+        Start  24: t_strm_reassem_win
+ 24/162 Test  #24: t_strm_reassem_win ...............   Passed    0.09 sec
+        Start  25: t_strm_reassem_cap
+ 25/162 Test  #25: t_strm_reassem_cap ...............   Passed    0.27 sec
+        Start  26: t_byte_stream_construction
+ 26/162 Test  #26: t_byte_stream_construction .......   Passed    0.00 sec
+        Start  27: t_byte_stream_one_write
+ 27/162 Test  #27: t_byte_stream_one_write ..........   Passed    0.00 sec
+        Start  28: t_byte_stream_two_writes
+ 28/162 Test  #28: t_byte_stream_two_writes .........   Passed    0.00 sec
+        Start  29: t_byte_stream_capacity
+ 29/162 Test  #29: t_byte_stream_capacity ...........   Passed    0.62 sec
+        Start  30: t_byte_stream_many_writes
+ 30/162 Test  #30: t_byte_stream_many_writes ........   Passed    0.01 sec
+        Start  31: t_webget
+ 31/162 Test  #31: t_webget .........................   Passed    1.05 sec
+        Start  34: t_tcp_parser
+ 32/162 Test  #34: t_tcp_parser .....................   Passed    0.01 sec
+        Start  35: t_ipv4_parser
+ 33/162 Test  #35: t_ipv4_parser ....................   Passed    0.01 sec
+        Start  36: t_active_close
+ 34/162 Test  #36: t_active_close ...................   Passed    0.00 sec
+        Start  37: t_passive_close
+ 35/162 Test  #37: t_passive_close ..................   Passed    0.00 sec
+        Start  39: t_ack_rst
+ 36/162 Test  #39: t_ack_rst ........................   Passed    0.00 sec
+        Start  41: t_ack_rst_win
+ 37/162 Test  #41: t_ack_rst_win ....................   Passed    0.00 sec
+        Start  43: t_connect
+ 38/162 Test  #43: t_connect ........................   Passed    0.00 sec
+        Start  45: t_listen
+ 39/162 Test  #45: t_listen .........................   Passed    0.00 sec
+        Start  46: t_winsize
+ 40/162 Test  #46: t_winsize ........................   Passed    0.10 sec
+        Start  48: t_retx
+ 41/162 Test  #48: t_retx ...........................   Passed    0.00 sec
+        Start  49: t_retx_win
+ 42/162 Test  #49: t_retx_win .......................   Passed    0.00 sec
+        Start  50: t_loopback
+ 43/162 Test  #50: t_loopback .......................   Passed    0.28 sec
+        Start  51: t_loopback_win
+ 44/162 Test  #51: t_loopback_win ...................   Passed    0.14 sec
+        Start  52: t_reorder
+ 45/162 Test  #52: t_reorder ........................   Passed    0.22 sec
+        Start  53: t_address_dt
+ 46/162 Test  #53: t_address_dt .....................   Passed    0.01 sec
+        Start  54: t_parser_dt
+ 47/162 Test  #54: t_parser_dt ......................   Passed    0.00 sec
+        Start  55: t_socket_dt
+ 48/162 Test  #55: t_socket_dt ......................   Passed    0.00 sec
+        Start  56: t_udp_client_send
+ 49/162 Test  #56: t_udp_client_send ................   Passed    0.24 sec
+        Start  57: t_udp_server_send
+ 50/162 Test  #57: t_udp_server_send ................   Passed    0.24 sec
+        Start  58: t_udp_client_recv
+ 51/162 Test  #58: t_udp_client_recv ................   Passed    0.24 sec
+        Start  59: t_udp_server_recv
+ 52/162 Test  #59: t_udp_server_recv ................   Passed    0.25 sec
+        Start  60: t_udp_client_dupl
+ 53/162 Test  #60: t_udp_client_dupl ................   Passed    0.25 sec
+        Start  61: t_udp_server_dupl
+ 54/162 Test  #61: t_udp_server_dupl ................   Passed    0.25 sec
+        Start  62: t_ucS_1M_32k
+ 55/162 Test  #62: t_ucS_1M_32k .....................   Passed    0.29 sec
+        Start  63: t_ucS_128K_8K
+ 56/162 Test  #63: t_ucS_128K_8K ....................   Passed    0.25 sec
+        Start  64: t_ucS_16_1
+ 57/162 Test  #64: t_ucS_16_1 .......................   Passed    0.24 sec
+        Start  65: t_ucS_32K_d
+ 58/162 Test  #65: t_ucS_32K_d ......................   Passed    0.24 sec
+        Start  66: t_ucR_1M_32k
+ 59/162 Test  #66: t_ucR_1M_32k .....................   Passed    0.28 sec
+        Start  67: t_ucR_128K_8K
+ 60/162 Test  #67: t_ucR_128K_8K ....................   Passed    0.25 sec
+        Start  68: t_ucR_16_1
+ 61/162 Test  #68: t_ucR_16_1 .......................   Passed    0.24 sec
+        Start  69: t_ucR_32K_d
+ 62/162 Test  #69: t_ucR_32K_d ......................   Passed    0.24 sec
+        Start  70: t_ucD_1M_32k
+ 63/162 Test  #70: t_ucD_1M_32k .....................***Failed    6.33 sec
+coproc ./apps/tcp_udp -t 12 -w 32768   -l 169.254.144.1 7655 >/tmp/tmp.T88H8vDaVF </tmp/tmp.k7C9RaNGhu && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 32768 169.254.144.1 7655 >/tmp/tmp.8jzzK9zCeQ </tmp/tmp.k7C9RaNGhu
+DEBUG: Connecting to 169.254.144.1:7655... done.
+new connection from 169.254.144.1:59943.
+DEBUG: Outbound stream to 169.254.144.1:59943 finished (30768 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:7655 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:59943 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:59943 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 351e59e6323530faa8649f08cfa3a403199e633b7e9d9edda0d939c2b43eed3d neq 63d79181ee88234ab0cf9c4664a85e20a2a3202c4acafdc3a5a51e3a5af20393 or 351e59e6323530faa8649f08cfa3a403199e633b7e9d9edda0d939c2b43eed3d
+
+        Start  71: t_ucD_128K_8K
+ 64/162 Test  #71: t_ucD_128K_8K ....................   Passed    0.26 sec
+        Start  72: t_ucD_16_1
+ 65/162 Test  #72: t_ucD_16_1 .......................   Passed    0.25 sec
+        Start  73: t_ucD_32K_d
+ 66/162 Test  #73: t_ucD_32K_d ......................   Passed    0.27 sec
+        Start  74: t_usS_1M_32k
+ 67/162 Test  #74: t_usS_1M_32k .....................   Passed    0.32 sec
+        Start  75: t_usS_128K_8K
+ 68/162 Test  #75: t_usS_128K_8K ....................   Passed    0.26 sec
+        Start  76: t_usS_16_1
+ 69/162 Test  #76: t_usS_16_1 .......................   Passed    0.26 sec
+        Start  77: t_usS_32K_d
+ 70/162 Test  #77: t_usS_32K_d ......................   Passed    0.25 sec
+        Start  78: t_usR_1M_32k
+ 71/162 Test  #78: t_usR_1M_32k .....................   Passed    0.32 sec
+        Start  79: t_usR_128K_8K
+ 72/162 Test  #79: t_usR_128K_8K ....................   Passed    0.26 sec
+        Start  80: t_usR_16_1
+ 73/162 Test  #80: t_usR_16_1 .......................   Passed    0.25 sec
+        Start  81: t_usR_32K_d
+ 74/162 Test  #81: t_usR_32K_d ......................   Passed    0.26 sec
+        Start  82: t_usD_1M_32k
+ 75/162 Test  #82: t_usD_1M_32k .....................   Passed    0.32 sec
+        Start  83: t_usD_128K_8K
+ 76/162 Test  #83: t_usD_128K_8K ....................   Passed    0.29 sec
+        Start  84: t_usD_16_1
+ 77/162 Test  #84: t_usD_16_1 .......................   Passed    0.27 sec
+        Start  85: t_usD_32K_d
+ 78/162 Test  #85: t_usD_32K_d ......................   Passed    0.25 sec
+        Start  86: t_ucS_128K_8K_l
+ 79/162 Test  #86: t_ucS_128K_8K_l ..................   Passed    0.27 sec
+        Start  87: t_ucS_128K_8K_L
+ 80/162 Test  #87: t_ucS_128K_8K_L ..................***Failed    6.27 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1  -l 169.254.144.1 8204 >/tmp/tmp.CkPQkIF9ki </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 8204 >/dev/null </tmp/tmp.K91KOOioMY
+DEBUG: Connecting to 169.254.144.1:8204... done.
+new connection from 169.254.144.1:43846.
+DEBUG: Outbound stream to 169.254.144.1:43846 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:8204 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:43846 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.1:43846 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: 1a25c041ebf613a05a42eac1d6c7b365bee0950d9f02aea5806bb6b31a054ef9 neq 604a61be61f9d99ff12a9e64ae24be8baa7df397cb1cd4ce9dcb4dabc9e79607 or 
+
+        Start  88: t_ucS_128K_8K_lL
+ 81/162 Test  #88: t_ucS_128K_8K_lL .................***Failed    6.27 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -l 169.254.144.1 15863 >/tmp/tmp.eF5cS5HxqY </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 15863 >/dev/null </tmp/tmp.XYbPYCEXtC
+DEBUG: Connecting to 169.254.144.1:15863... done.
+new connection from 169.254.144.1:35903.
+DEBUG: Outbound stream to 169.254.144.1:35903 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:15863 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:35903 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:35903 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: d085aebf8c82b23e7ae3c599d8a8f99df86d63e8472ad472846827183a2e7414 neq ce6f0fb5f0231dbfaf229d8111c5a18a01d0acadfb32c9b42ca39549c06f7b8f or 
+
+        Start  89: t_ucR_128K_8K_l
+ 82/162 Test  #89: t_ucR_128K_8K_l ..................***Failed    6.33 sec
+coproc ./apps/tcp_udp -t 12 -w 8192  -Lu 0.1 -l 169.254.144.1 32936 >/dev/null </tmp/tmp.PAmDaFU42X && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 32936 >/tmp/tmp.KMyD9rzFOr </dev/null
+DEBUG: Connecting to 169.254.144.1:32936... done.
+new connection from 169.254.144.1:48216.
+DEBUG: Outbound stream to 169.254.144.1:32936 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:48216 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:32936 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.1:32936 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: b9be849be65cd90fa9fb7494d3d5b7871257a8a5f3ca832fe5958881fdec0e2d neq 6085f85bc5e3410ad66c28e47dfcc4ce03f54378d481d3ac65fff26a1351320f or 
+
+        Start  90: t_ucR_128K_8K_L
+ 83/162 Test  #90: t_ucR_128K_8K_L ..................   Passed    0.26 sec
+        Start  91: t_ucR_128K_8K_lL
+ 84/162 Test  #91: t_ucR_128K_8K_lL .................***Failed    6.29 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -l 169.254.144.1 8404 >/dev/null </tmp/tmp.szGseIHoak && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 8404 >/tmp/tmp.oxmOcBUmY9 </dev/null
+DEBUG: Connecting to 169.254.144.1:8404... done.
+new connection from 169.254.144.1:48739.
+DEBUG: Outbound stream to 169.254.144.1:8404 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:48739 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:8404 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:8404 finished with an error/reset.
+done.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: ab3434043de057bf510cb08ea0f8b0470435596fd748fd1e89065d7dd3eba7cb neq de4a27207808d7d14704885188ce98446de7e68586b5da4c44db312a084ff283 or 
+
+        Start  92: t_ucD_128K_8K_l
+ 85/162 Test  #92: t_ucD_128K_8K_l ..................***Failed    6.27 sec
+coproc ./apps/tcp_udp -t 12 -w 8192  -Lu 0.1 -l 169.254.144.1 33456 >/tmp/tmp.GBVDlOYiVu </tmp/tmp.kDHpA3BJwB && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 33456 >/tmp/tmp.kZN2W99M8T </tmp/tmp.kDHpA3BJwB
+DEBUG: Connecting to 169.254.144.1:33456... done.
+new connection from 169.254.144.1:43121.
+DEBUG: Outbound stream to 169.254.144.1:33456 finished (7192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:43121 finished cleanly.
+DEBUG: Outbound stream to DEBUG: Waiting for clean shutdown... 169.254.144.1:33456 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:33456 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 9511e5675db22872c16e22a3ee9b08285de162c4c60ed66f23c6ba274354f5d7 neq 9511e5675db22872c16e22a3ee9b08285de162c4c60ed66f23c6ba274354f5d7 or 474288a19e9b9188ad592aa225b77455e96fc1c76d73f7c22755afee52d988a0
+
+        Start  93: t_ucD_128K_8K_L
+ 86/162 Test  #93: t_ucD_128K_8K_L ..................***Failed    6.28 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1  -l 169.254.144.1 30071 >/tmp/tmp.W3ZWZuqkwA </tmp/tmp.91SJ292tLV && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 30071 >/tmp/tmp.O7ltLio1u7 </tmp/tmp.91SJ292tLV
+DEBUG: Connecting to 169.254.144.1:30071... done.
+new connection from 169.254.144.1:37592.
+DEBUG: Outbound stream to 169.254.144.1:37592 finished (7192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:30071 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:37592 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:37592 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 709ff9df7d9a840bbc3383932c97cf2860556197f0b09dc6f6eb7a1896e95ea1 neq 9060d1a667e2db7e46d12d1ffb9a4b38ec5051d1389f9659bbac78c2e5cf8781 or 709ff9df7d9a840bbc3383932c97cf2860556197f0b09dc6f6eb7a1896e95ea1
+
+        Start  94: t_ucD_128K_8K_lL
+ 87/162 Test  #94: t_ucD_128K_8K_lL .................***Failed    6.34 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -l 169.254.144.1 31619 >/tmp/tmp.iK1OBVv1GP </tmp/tmp.zaim1HCn17 && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 169.254.144.1 31619 >/tmp/tmp.aL2mnBCRBW </tmp/tmp.zaim1HCn17
+DEBUG: Connecting to 169.254.144.1:31619... done.
+new connection from 169.254.144.1:36960.
+DEBUG: Inbound stream from 169.254.144.1:36960 finished with an error/reset.
+DEBUG: Inbound stream from 169.254.144.1:31619 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 8b893e39c597f27faf347414d7808e4f4943b2566fd08414d8c373955fa73f33 neq 4de35936ff55a3a233d61fa5e415ca90b5d3d2d69a29ac720c6eb0e8cc4ad544 or 0e6491cf0634c90d680a0b4f0e86aa2daf535c979f141390e2a5905778620d71
+
+        Start  95: t_usS_128K_8K_l
+ 88/162 Test  #95: t_usS_128K_8K_l ..................   Passed    0.31 sec
+        Start  96: t_usS_128K_8K_L
+ 89/162 Test  #96: t_usS_128K_8K_L ..................***Failed    6.31 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 33545 >/dev/null </tmp/tmp.IWy0HwBJQ1 && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1  169.254.144.1 33545 >/tmp/tmp.2owmyE45a6 </dev/null
+DEBUG: Connecting to 169.254.144.1:33545... done.
+new connection from 169.254.144.1:49394.
+DEBUG: Outbound stream to 169.254.144.1:33545 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:49394 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:33545 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:33545done.
+ finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: 7bedd3222f08e3ae4fbc18b96d1b10c0d38402b75b0c217d0af393400462a87f neq 5ce31e579cffabdecc60526ad6a4968f88ee00f478662e80bd3dbabc437f4ba3 or 
+
+        Start  97: t_usS_128K_8K_lL
+ 90/162 Test  #97: t_usS_128K_8K_lL .................***Failed    6.29 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 15287 >/dev/null </tmp/tmp.6ichpyAZVU && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 169.254.144.1 15287 >/tmp/tmp.B6lxkYswf5 </dev/null
+DEBUG: Connecting to 169.254.144.1:15287... done.
+new connection from 169.254.144.1:51598.
+DEBUG: Outbound stream to 169.254.144.1:15287 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:51598 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:15287 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:15287 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 3e9e1e978179e717fec86e87d8e017ffa62458e0821e53cc25f9dfd42698f780 neq 1811d731d19ae38668e8a533446419f85baaa17eb011f49eb0be36fbdc7d0d64 or 
+
+        Start  98: t_usR_128K_8K_l
+ 91/162 Test  #98: t_usR_128K_8K_l ..................***Failed    6.29 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 8667 >/tmp/tmp.md6dhSX55E </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192  -Lu 0.1 169.254.144.1 8667 >/dev/null </tmp/tmp.e7OBSF23oM
+DEBUG: Connecting to 169.254.144.1:8667... done.
+new connection from 169.254.144.1:46232.
+DEBUG: Outbound stream to 169.254.144.1:46232 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.1:8667 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:46232 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: Inbound stream from 169.254.144.1:46232 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 27f3eb7d8d5dc6914cf70a0cc9df0d1aacf71c20364b61c5167dfb31c5a71c82 neq 51d466350d6830ed64ef67ac84068936d5e0e1c06a0a0ce8582295570f440bac or 
+
+        Start  99: t_usR_128K_8K_L
+ 92/162 Test  #99: t_usR_128K_8K_L ..................   Passed    0.25 sec
+        Start 100: t_usR_128K_8K_lL
+ 93/162 Test #100: t_usR_128K_8K_lL .................***Timeout  10.02 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 19692 >/tmp/tmp.nf7FhTpMDq </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 169.254.144.1 19692 >/dev/null </tmp/tmp.IGvH4TiGoy
+
+        Start 101: t_usD_128K_8K_l
+ 94/162 Test #101: t_usD_128K_8K_l ..................***Failed    6.27 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 27083 >/tmp/tmp.k2KsVDqct1 </tmp/tmp.kQDC8kOJRC && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192  -Lu 0.1 169.254.144.1 27083 >/tmp/tmp.1TOfHTqvPT </tmp/tmp.kQDC8kOJRC
+DEBUG: Connecting to 169.254.144.1:27083... done.
+new connection from 169.254.144.1:43992.
+DEBUG: Outbound stream to 169.254.144.1:43992 finished (6192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:27083 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:43992 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:43992 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 88cba6ced498f4134d1577b7bbf60f782fd33c78daaff34001232d41c0e21658 neq 5644ae0f4eac152d1ca5cc5af83acd31c54c8605e0575bb890c5c35b3ef54d11 or 88cba6ced498f4134d1577b7bbf60f782fd33c78daaff34001232d41c0e21658
+
+        Start 102: t_usD_128K_8K_L
+ 95/162 Test #102: t_usD_128K_8K_L ..................***Failed    6.30 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 32227 >/tmp/tmp.uuWGrWZjLs </tmp/tmp.wNQeXqr9Uq && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1  169.254.144.1 32227 >/tmp/tmp.lD4allAX9g </tmp/tmp.wNQeXqr9Uq
+DEBUG: Connecting to 169.254.144.1:32227... done.
+new connection from 169.254.144.1:35306.
+DEBUG: Outbound stream to 169.254.144.1:32227 finished (7192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:35306 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:32227 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:32227 finished with an error/reset.
+done.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: 63be3220f89dc268d380d1469a19709a2b930c22c3eabae200905e13aeda8474 neq 63be3220f89dc268d380d1469a19709a2b930c22c3eabae200905e13aeda8474 or 4c5dca63726831ecdb213a7af8621a5348ffe03b939851a48847e55aafce2cc8
+
+        Start 103: t_usD_128K_8K_lL
+ 96/162 Test #103: t_usD_128K_8K_lL .................***Failed    6.35 sec
+coproc ./apps/tcp_udp -t 12 -w 8192 -l 169.254.144.1 23559 >/tmp/tmp.PcqOJxcxgn </tmp/tmp.wpC6JMpNNq && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_udp -t 12 -w 8192 -Ld 0.1 -Lu 0.1 169.254.144.1 23559 >/tmp/tmp.DwjHMnnHqU </tmp/tmp.wpC6JMpNNq
+DEBUG: Connecting to 169.254.144.1:23559... done.
+new connection from 169.254.144.1:55587.
+DEBUG: Inbound stream from 169.254.144.1:55587 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.1:23559 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 1bff1166f193e5c1d707ff64ea170ae701b461066ed60c3d6a76781b151e1a0e neq c85f9c483d9a94a0912b350736121fa9fea8b16e6889e587ee6941363b425439 or 8458ddf3924da431e74a7a833955a5e1b26242592a11d67d3d35e8f580dd532b
+
+        Start 104: t_ipv4_client_send
+ 97/162 Test #104: t_ipv4_client_send ...............   Passed    0.26 sec
+        Start 105: t_ipv4_server_send
+ 98/162 Test #105: t_ipv4_server_send ...............   Passed    0.24 sec
+        Start 106: t_ipv4_client_recv
+ 99/162 Test #106: t_ipv4_client_recv ...............   Passed    0.25 sec
+        Start 107: t_ipv4_server_recv
+100/162 Test #107: t_ipv4_server_recv ...............   Passed    0.26 sec
+        Start 108: t_ipv4_client_dupl
+101/162 Test #108: t_ipv4_client_dupl ...............   Passed    0.25 sec
+        Start 109: t_ipv4_server_dupl
+102/162 Test #109: t_ipv4_server_dupl ...............   Passed    0.27 sec
+        Start 110: t_icS_1M_32k
+103/162 Test #110: t_icS_1M_32k .....................   Passed    0.35 sec
+        Start 111: t_icS_128K_8K
+104/162 Test #111: t_icS_128K_8K ....................   Passed    0.30 sec
+        Start 112: t_icS_16_1
+105/162 Test #112: t_icS_16_1 .......................   Passed    0.28 sec
+        Start 113: t_icS_32K_d
+106/162 Test #113: t_icS_32K_d ......................   Passed    0.27 sec
+        Start 114: t_icR_1M_32k
+107/162 Test #114: t_icR_1M_32k .....................   Passed    0.36 sec
+        Start 115: t_icR_128K_8K
+108/162 Test #115: t_icR_128K_8K ....................   Passed    0.26 sec
+        Start 116: t_icR_16_1
+109/162 Test #116: t_icR_16_1 .......................   Passed    0.25 sec
+        Start 117: t_icR_32K_d
+110/162 Test #117: t_icR_32K_d ......................   Passed    0.25 sec
+        Start 118: t_icD_1M_32k
+111/162 Test #118: t_icD_1M_32k .....................   Passed    0.43 sec
+        Start 119: t_icD_128K_8K
+112/162 Test #119: t_icD_128K_8K ....................   Passed    0.28 sec
+        Start 120: t_icD_16_1
+113/162 Test #120: t_icD_16_1 .......................   Passed    0.28 sec
+        Start 121: t_icD_32K_d
+114/162 Test #121: t_icD_32K_d ......................   Passed    0.28 sec
+        Start 122: t_isS_1M_32k
+115/162 Test #122: t_isS_1M_32k .....................   Passed    0.35 sec
+        Start 123: t_isS_128K_8K
+116/162 Test #123: t_isS_128K_8K ....................   Passed    0.29 sec
+        Start 124: t_isS_16_1
+117/162 Test #124: t_isS_16_1 .......................   Passed    0.27 sec
+        Start 125: t_isS_32K_d
+118/162 Test #125: t_isS_32K_d ......................   Passed    0.25 sec
+        Start 126: t_isR_1M_32k
+119/162 Test #126: t_isR_1M_32k .....................   Passed    0.35 sec
+        Start 127: t_isR_128K_8K
+120/162 Test #127: t_isR_128K_8K ....................   Passed    0.27 sec
+        Start 128: t_isR_16_1
+121/162 Test #128: t_isR_16_1 .......................   Passed    0.28 sec
+        Start 129: t_isR_32K_d
+122/162 Test #129: t_isR_32K_d ......................   Passed    0.27 sec
+        Start 130: t_isD_1M_32k
+123/162 Test #130: t_isD_1M_32k .....................   Passed    0.41 sec
+        Start 131: t_isD_128K_8K
+124/162 Test #131: t_isD_128K_8K ....................   Passed    0.31 sec
+        Start 132: t_isD_16_1
+125/162 Test #132: t_isD_16_1 .......................   Passed    0.28 sec
+        Start 133: t_isD_32K_d
+126/162 Test #133: t_isD_32K_d ......................   Passed    0.28 sec
+        Start 134: t_icS_128K_8K_l
+127/162 Test #134: t_icS_128K_8K_l ..................   Passed    0.29 sec
+        Start 135: t_icS_128K_8K_L
+128/162 Test #135: t_icS_128K_8K_L ..................***Timeout  10.02 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1  -d tun145 -a 169.254.145.9 -l 169.254.145.9 21021 >/tmp/tmp.DobEBU1g96 </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 21021 >/dev/null </tmp/tmp.MDFq0V6wNR
+
+        Start 136: t_icS_128K_8K_lL
+129/162 Test #136: t_icS_128K_8K_lL .................***Failed    6.31 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 -l 169.254.145.9 32594 >/tmp/tmp.20XPyUAGWq </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 32594 >/dev/null </tmp/tmp.F5hGmlYw4u
+DEBUG: Connecting to 169.254.145.9:32594... done.
+new connection from 169.254.145.1:19768.
+DEBUG: Outbound stream to 169.254.145.1:19768 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.145.9:32594 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.145.1:19768 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.145.1:19768 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: 7b7251cd0af50d6f10d60d4361a00bfe1e18895a92a7029d845388c35350705e neq 4861a824204e8a57739ab7edff67ddbbbafc50962dd07295d3c513aab33ff8fb or 
+
+        Start 137: t_icR_128K_8K_l
+130/162 Test #137: t_icR_128K_8K_l ..................***Timeout  10.01 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192  -Lu 0.1 -d tun145 -a 169.254.145.9 -l 169.254.145.9 29668 >/dev/null </tmp/tmp.jSZFJJqWzX && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 29668 >/tmp/tmp.ERZzuN5TyZ </dev/null
+DEBUG: Connecting to 169.254.145.9:29668... done.
+DEBUG: Outbound stream to 169.254.145.9:29668 finished (1 byte still in flight).
+new connection from 169.254.145.1:37640.
+DEBUG: Inbound stream from 169.254.145.1:37640 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.145.9:29668 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+
+        Start 138: t_icR_128K_8K_L
+131/162 Test #138: t_icR_128K_8K_L ..................   Passed    0.29 sec
+        Start 139: t_icR_128K_8K_lL
+132/162 Test #139: t_icR_128K_8K_lL .................***Failed    6.30 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 -l 169.254.145.9 27546 >/dev/null </tmp/tmp.oFKnE19h1N && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 27546 >/tmp/tmp.g743ux6EgR </dev/null
+DEBUG: Connecting to 169.254.145.9:27546... done.
+new connection from 169.254.145.1:55398.
+DEBUG: Outbound stream to 169.254.145.9:27546 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.145.1:55398 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.145.9:27546 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.145.9:27546 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: c51e75c3b1776db1b123b89eb392982ab8a61133f01cfb25de87f54aa57aaf30 neq 768d049a00d6e256436acb26239c205dc7ee45f7a9b1eefc2ad735562c5c77c0 or 
+
+        Start 140: t_icD_128K_8K_l
+133/162 Test #140: t_icD_128K_8K_l ..................***Failed    6.28 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192  -Lu 0.1 -d tun145 -a 169.254.145.9 -l 169.254.145.9 31863 >/tmp/tmp.XOrdcuMbqm </tmp/tmp.zeLMu6QXoQ && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 31863 >/tmp/tmp.gItA3keHn8 </tmp/tmp.zeLMu6QXoQ
+DEBUG: Connecting to 169.254.145.9:31863... done.
+new connection from 169.254.145.1:63833.
+DEBUG: Outbound stream to 169.254.145.9:31863 finished (8000 bytes still in flight).
+DEBUG: Inbound stream from 169.254.145.1:63833 finished cleanly.
+DEBUG: Outbound stream to 169.254.145.9:31863 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.145.9:31863 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Waiting for clean shutdown... done.
+ERROR: 7ecf4803466e94373047714112b16593db75e9ca1880d447169a527e7ff3a62d neq 7ecf4803466e94373047714112b16593db75e9ca1880d447169a527e7ff3a62d or 319afe1fa9306e162d680d1ae0c03d5c39a24c0c47ffa86e58f092d1f1b4b255
+
+        Start 141: t_icD_128K_8K_L
+134/162 Test #141: t_icD_128K_8K_L ..................***Failed    6.29 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1  -d tun145 -a 169.254.145.9 -l 169.254.145.9 23958 >/tmp/tmp.clR8C5kg4e </tmp/tmp.OS3RcI4GXZ && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 23958 >/tmp/tmp.gzKptpGkUR </tmp/tmp.OS3RcI4GXZ
+DEBUG: Connecting to 169.254.145.9:23958... done.
+new connection from 169.254.145.1:2411.
+DEBUG: Outbound stream to 169.254.145.1:2411 finished (8000 bytes still in flight).
+DEBUG: Inbound stream from 169.254.145.9:23958 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.145.1:2411 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.145.1:2411 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: da59ed9cd3a5ae063a035f9a5b3418eb74823fe190baa12ced9fc5153b0aa9a8 neq 28dc1b5119d05857d19a5b8a895d837ed00e273156ec3e7131a7fb5e42bc84f6 or da59ed9cd3a5ae063a035f9a5b3418eb74823fe190baa12ced9fc5153b0aa9a8
+
+        Start 142: t_icD_128K_8K_lL
+135/162 Test #142: t_icD_128K_8K_lL .................***Timeout  10.02 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 -l 169.254.145.9 5253 >/tmp/tmp.w9D8muxN86 </tmp/tmp.9ScrZFxOd8 && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 169.254.145.9 5253 >/tmp/tmp.aVwsgCEVvi </tmp/tmp.9ScrZFxOd8
+
+        Start 143: t_isS_128K_8K_l
+136/162 Test #143: t_isS_128K_8K_l ..................   Passed    0.27 sec
+        Start 144: t_isS_128K_8K_L
+137/162 Test #144: t_isS_128K_8K_L ..................***Failed    6.28 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 23402 >/dev/null </tmp/tmp.ultqik7YMY && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1  -d tun145 -a 169.254.145.9 169.254.144.9 23402 >/tmp/tmp.6jbHmHabRX </dev/null
+DEBUG: Connecting to 169.254.144.9:23402... done.
+DEBUG: Outbound stream to 169.254.144.9:23402 finished (1 byte still in flight).
+new connection from 169.254.144.1:37002.
+DEBUG: Inbound stream from 169.254.144.1:37002 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.9:23402 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.9:23402 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: f22e3b247664bbdd2277e3d2be9a40f19c563082c051ef913aa6ebf9ace2fe90 neq 03b7f5b63b1b63b8836b8a12d51b20e2909972be5b211e6dfa557f1f3f260378 or 
+
+        Start 145: t_isS_128K_8K_lL
+138/162 Test #145: t_isS_128K_8K_lL .................***Failed    6.27 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 10580 >/dev/null </tmp/tmp.9qhoEZZrhY && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 169.254.144.9 10580 >/tmp/tmp.RwT7INHAv2 </dev/null
+DEBUG: Connecting to 169.254.144.9:10580... done.
+DEBUG: Outbound stream to 169.254.144.9:10580 finished (1 byte still in flight).
+new connection from 169.254.144.1:5860.
+DEBUG: Inbound stream from 169.254.144.1:5860 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.9:10580 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.9:10580 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: b0b2d81de9400d2290ad6792929321da1e32ae12453fa4174df6fdf50f69ade1 neq b24adc0e044d7b2d6a67e7050feba5932c5e2213761f9ab7766f5f75d6da863c or 
+
+        Start 146: t_isR_128K_8K_l
+139/162 Test #146: t_isR_128K_8K_l ..................***Failed    6.31 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 11063 >/tmp/tmp.hNQhxYYLTy </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192  -Lu 0.1 -d tun145 -a 169.254.145.9 169.254.144.9 11063 >/dev/null </tmp/tmp.snymu7zzyW
+DEBUG: Connecting to 169.254.144.9:11063... done.
+new connection from 169.254.144.1:37727.
+DEBUG: Outbound stream to 169.254.144.1:37727 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.9:11063 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:37727 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.1:37727 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: c6557d6a2be2a3de8b021365e1fd9a6a9fe5c217a16363ecae6b21572c4d6b54 neq ee6936d899ba4043dd031f2bbf81ce1403cdd316c17d97e9e955c911a3e72e1f or 
+
+        Start 147: t_isR_128K_8K_L
+140/162 Test #147: t_isR_128K_8K_L ..................   Passed    0.25 sec
+        Start 148: t_isR_128K_8K_lL
+141/162 Test #148: t_isR_128K_8K_lL .................***Failed    6.34 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 21420 >/tmp/tmp.IpaM4yDt7x </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 169.254.144.9 21420 >/dev/null </tmp/tmp.LeS46XRZ3f
+DEBUG: Connecting to 169.254.144.9:21420... done.
+new connection from 169.254.144.1:33329.
+DEBUG: Outbound stream to 169.254.144.1:33329 finished (1 byte still in flight).
+DEBUG: Inbound stream from 169.254.144.9:21420 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.1:33329 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.1:33329 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: 3dedd1cce9aa638bf66d56900497636bfbc333f8fa7e1b48eea82041da8bf8b1 neq 67c4ba020263e2425c7d1ed1fc0240280828cc16f0917f68025c16c0a27837cb or 
+
+        Start 149: t_isD_128K_8K_l
+142/162 Test #149: t_isD_128K_8K_l ..................***Failed    6.27 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 19905 >/tmp/tmp.kXHRfLwVQz </tmp/tmp.cm8aLwf1z4 && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192  -Lu 0.1 -d tun145 -a 169.254.145.9 169.254.144.9 19905 >/tmp/tmp.lJYiv4SJzl </tmp/tmp.cm8aLwf1z4
+DEBUG: Connecting to 169.254.144.9:19905... done.
+new connection from 169.254.144.1:9504.
+DEBUG: Outbound stream to 169.254.144.1:9504 finished (6192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.9:19905 finished cleanly.
+DEBUG: Outbound stream to 169.254.144.1:9504 has been fully acknowledged.
+DEBUG: Waiting for clean shutdown... DEBUG: TCP connection finished uncleanlydone.
+DEBUG: Inbound stream from 169.254.144.1:9504 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+ERROR: d13afcbf8381b23ca7226d04f24b8b145c1ff0402036fe44e9936223bfb29836 neq 5ffd6096a57a09e8bc706c81bb6bf8c92a5bb80ece397207c6d530fa8267527c or d13afcbf8381b23ca7226d04f24b8b145c1ff0402036fe44e9936223bfb29836
+
+        Start 150: t_isD_128K_8K_L
+143/162 Test #150: t_isD_128K_8K_L ..................***Failed    6.28 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 4165 >/tmp/tmp.baSOzCdc0p </tmp/tmp.Nj6dKfCoFG && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1  -d tun145 -a 169.254.145.9 169.254.144.9 4165 >/tmp/tmp.Z8C2fFGIlw </tmp/tmp.Nj6dKfCoFG
+DEBUG: Connecting to 169.254.144.9:4165... done.
+new connection from 169.254.144.1:10042.
+DEBUG: Outbound stream to 169.254.144.9:4165 finished (6192 bytes still in flight).
+DEBUG: Inbound stream from 169.254.144.1:10042 finished cleanly.
+DEBUG: Waiting for clean shutdown... DEBUG: Outbound stream to 169.254.144.9:4165 has been fully acknowledged.
+DEBUG: TCP connection finished uncleanlyDEBUG: Inbound stream from 169.254.144.9:4165 finished with an error/reset.
+DEBUG: TCP connection finished uncleanlyDEBUG: Waiting for clean shutdown... done.
+done.
+ERROR: 8045aacf22bd4dfa30acde7cb1acc1215b3f1630a305ce477899f7a558bff5bf neq 8045aacf22bd4dfa30acde7cb1acc1215b3f1630a305ce477899f7a558bff5bf or 802900d018200b27c1fa218f4228fafa274cfac08b67b269c9b6b51b0c653a05
+
+        Start 151: t_isD_128K_8K_lL
+144/162 Test #151: t_isD_128K_8K_lL .................***Failed    6.36 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -d tun144 -a 169.254.144.9 -l 169.254.144.9 6915 >/tmp/tmp.Pu5KJvRmWf </tmp/tmp.wXTL47eYpq && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_ipv4 -t 12 -w 8192 -Ld 0.1 -Lu 0.1 -d tun145 -a 169.254.145.9 169.254.144.9 6915 >/tmp/tmp.OGuZ7lpTPv </tmp/tmp.wXTL47eYpq
+DEBUG: Connecting to 169.254.144.9:6915... done.
+new connection from 169.254.144.1:42648.
+DEBUG: Inbound stream from DEBUG: Inbound stream from 169.254.144.9:6915169.254.144.1:42648 finished  finished with an error/reset.
+with an error/reset.
+DEBUG: TCP connection finished DEBUG: TCP connection finished uncleanlyuncleanlyDEBUG: Waiting for clean shutdown... DEBUG: Waiting for clean shutdown... done.
+done.
+ERROR: 79e7de251b843b1e2b6740c806497286ff09c7a472561ffa4352920c833b50ad neq 6a204e46efb2170ef409e3f1e9580cd102338a737ed52eb1fbe3b950badd1ed1 or d3aa9f34fc6b0cb48b677d1b215ef155ba3190f729aaec7907ddf039c78e77e4
+
+        Start 152: t_icnS_128K_8K_l
+145/162 Test #152: t_icnS_128K_8K_l .................   Passed    0.14 sec
+        Start 153: t_icnS_128K_8K_L
+146/162 Test #153: t_icnS_128K_8K_L .................   Passed    0.51 sec
+        Start 154: t_icnS_128K_8K_lL
+147/162 Test #154: t_icnS_128K_8K_lL ................   Passed    0.25 sec
+        Start 155: t_icnR_128K_8K_l
+148/162 Test #155: t_icnR_128K_8K_l .................***Timeout  10.05 sec
+coproc ./apps/tcp_native -l 169.254.144.1 33581 >/dev/null </tmp/tmp.bHwdH79sEY && sleep 0.1
+./apps/tcp_ipv4 -t 12 -w 8192  -Ld 0.1 -d tun144 -a 169.254.144.9 169.254.144.1 33581 >/tmp/tmp.bJlEsIjig6 </dev/null
+DEBUG: Connecting to 169.254.144.1:33581... done.
+DEBUG: Outbound stream to 169.254.144.1:33581 finished (1 byte still in flight).
+DEBUG: Outbound stream to 169.254.144.1:33581 has been fully acknowledged.
+
+        Start 156: t_icnR_128K_8K_L
+149/162 Test #156: t_icnR_128K_8K_L .................   Passed    0.30 sec
+        Start 157: t_icnR_128K_8K_lL
+150/162 Test #157: t_icnR_128K_8K_lL ................***Timeout  10.02 sec
+coproc ./apps/tcp_native -l 169.254.144.1 27939 >/dev/null </tmp/tmp.tLf7b22dP0 && sleep 0.1
+./apps/tcp_ipv4 -t 12 -w 8192 -Lu 0.1 -Ld 0.1 -d tun144 -a 169.254.144.9 169.254.144.1 27939 >/tmp/tmp.F8dC4w4tIv </dev/null
+DEBUG: Connecting to 169.254.144.1:27939... done.
+DEBUG: Outbound stream to 169.254.144.1:27939 finished (1 byte still in flight).
+DEBUG: Outbound stream to 169.254.144.1:27939 has been fully acknowledged.
+
+        Start 158: t_icnD_128K_8K_l
+151/162 Test #158: t_icnD_128K_8K_l .................***Timeout  10.05 sec
+coproc ./apps/tcp_native -l 169.254.144.1 11182 >/tmp/tmp.1RRagQGr1H </tmp/tmp.h1Jb6Gw90Y && sleep 0.1
+./apps/tcp_ipv4 -t 12 -w 8192  -Ld 0.1 -d tun144 -a 169.254.144.9 169.254.144.1 11182 >/tmp/tmp.HzdmgahcHc </tmp/tmp.h1Jb6Gw90Y
+DEBUG: Connecting to 169.254.144.1:11182... done.
+DEBUG: Outbound stream to 169.254.144.1:11182 finished (64000 bytes still in flight).
+DEBUG: Outbound stream to 169.254.144.1:11182 has been fully acknowledged.
+
+        Start 159: t_icnD_128K_8K_L
+152/162 Test #159: t_icnD_128K_8K_L .................   Passed    0.43 sec
+        Start 160: t_icnD_128K_8K_lL
+153/162 Test #160: t_icnD_128K_8K_lL ................***Timeout  10.02 sec
+coproc ./apps/tcp_native -l 169.254.144.1 15532 >/tmp/tmp.a3pQkzrLb7 </tmp/tmp.poydnWUoyc && sleep 0.1
+./apps/tcp_ipv4 -t 12 -w 8192 -Lu 0.1 -Ld 0.1 -d tun144 -a 169.254.144.9 169.254.144.1 15532 >/tmp/tmp.JbLdj3ikWk </tmp/tmp.poydnWUoyc
+DEBUG: Connecting to 169.254.144.1:15532... done.
+DEBUG: Outbound stream to 169.254.144.1:15532 finished (36000 bytes still in flight).
+DEBUG: Outbound stream to 169.254.144.1:15532 has been fully acknowledged.
+
+        Start 161: t_isnS_128K_8K_l
+154/162 Test #161: t_isnS_128K_8K_l .................   Passed    0.13 sec
+        Start 162: t_isnS_128K_8K_L
+155/162 Test #162: t_isnS_128K_8K_L .................   Passed    0.33 sec
+        Start 163: t_isnS_128K_8K_lL
+156/162 Test #163: t_isnS_128K_8K_lL ................   Passed    0.30 sec
+        Start 164: t_isnR_128K_8K_l
+157/162 Test #164: t_isnR_128K_8K_l .................***Timeout  10.02 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192  -Ld 0.1 -d tun144 -a 169.254.144.9 -l 169.254.144.9 20920 >/tmp/tmp.Rvglve1W5h </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_native 169.254.144.9 20920 >/dev/null </tmp/tmp.KSsrsEzLQ9
+new connection from 169.254.144.1:58326.
+DEBUG: Outbound stream to 169.254.144.1:58326 finished (1 byte still in flight).
+DEBUG: Outbound stream to 169.254.144.1:58326 has been fully acknowledged.
+
+        Start 165: t_isnR_128K_8K_L
+158/162 Test #165: t_isnR_128K_8K_L .................   Passed    0.27 sec
+        Start 166: t_isnR_128K_8K_lL
+159/162 Test #166: t_isnR_128K_8K_lL ................***Timeout  10.02 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Lu 0.1 -Ld 0.1 -d tun144 -a 169.254.144.9 -l 169.254.144.9 24156 >/tmp/tmp.fCWrTpd8CG </dev/null && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_native 169.254.144.9 24156 >/dev/null </tmp/tmp.TdWQQUyjOW
+new connection from 169.254.144.1:47184.
+DEBUG: Outbound stream to 169.254.144.1:47184 finished (1 byte still in flight).
+DEBUG: Outbound stream to 169.254.144.1:47184 has been fully acknowledged.
+
+        Start 167: t_isnD_128K_8K_l
+160/162 Test #167: t_isnD_128K_8K_l .................***Timeout  10.02 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192  -Ld 0.1 -d tun144 -a 169.254.144.9 -l 169.254.144.9 16698 >/tmp/tmp.DovVNGp90j </tmp/tmp.pbyNIZZZWV && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_native 169.254.144.9 16698 >/tmp/tmp.DfBGjskzR0 </tmp/tmp.pbyNIZZZWV
+new connection from 169.254.144.1:44958.
+DEBUG: Outbound stream to 169.254.144.1:44958 finished (64000 bytes still in flight).
+DEBUG: Outbound stream to 169.254.144.1:44958 has been fully acknowledged.
+
+        Start 168: t_isnD_128K_8K_L
+161/162 Test #168: t_isnD_128K_8K_L .................   Passed    0.37 sec
+        Start 169: t_isnD_128K_8K_lL
+162/162 Test #169: t_isnD_128K_8K_lL ................***Timeout  10.05 sec
+coproc ./apps/tcp_ipv4 -t 12 -w 8192 -Lu 0.1 -Ld 0.1 -d tun144 -a 169.254.144.9 -l 169.254.144.9 33304 >/tmp/tmp.4r3ZY1UXf4 </tmp/tmp.8xsr0bY2HH && sleep 0.1
+DEBUG: Listening for incoming connection... ./apps/tcp_native 169.254.144.9 33304 >/tmp/tmp.ojXWxUOPOB </tmp/tmp.8xsr0bY2HH
+new connection from 169.254.144.1:37388.
+DEBUG: Outbound stream to 169.254.144.1:37388 finished (37000 bytes still in flight).
+DEBUG: Outbound stream to 169.254.144.1:37388 has been fully acknowledged.
+
+
+77% tests passed, 37 tests failed out of 162
+
+Total Test time (real) = 302.91 sec
+
+The following tests FAILED:
+	 70 - t_ucD_1M_32k (Failed)
+	 87 - t_ucS_128K_8K_L (Failed)
+	 88 - t_ucS_128K_8K_lL (Failed)
+	 89 - t_ucR_128K_8K_l (Failed)
+	 91 - t_ucR_128K_8K_lL (Failed)
+	 92 - t_ucD_128K_8K_l (Failed)
+	 93 - t_ucD_128K_8K_L (Failed)
+	 94 - t_ucD_128K_8K_lL (Failed)
+	 96 - t_usS_128K_8K_L (Failed)
+	 97 - t_usS_128K_8K_lL (Failed)
+	 98 - t_usR_128K_8K_l (Failed)
+	100 - t_usR_128K_8K_lL (Timeout)
+	101 - t_usD_128K_8K_l (Failed)
+	102 - t_usD_128K_8K_L (Failed)
+	103 - t_usD_128K_8K_lL (Failed)
+	135 - t_icS_128K_8K_L (Timeout)
+	136 - t_icS_128K_8K_lL (Failed)
+	137 - t_icR_128K_8K_l (Timeout)
+	139 - t_icR_128K_8K_lL (Failed)
+	140 - t_icD_128K_8K_l (Failed)
+	141 - t_icD_128K_8K_L (Failed)
+	142 - t_icD_128K_8K_lL (Timeout)
+	144 - t_isS_128K_8K_L (Failed)
+	145 - t_isS_128K_8K_lL (Failed)
+	146 - t_isR_128K_8K_l (Failed)
+	148 - t_isR_128K_8K_lL (Failed)
+	149 - t_isD_128K_8K_l (Failed)
+	150 - t_isD_128K_8K_L (Failed)
+	151 - t_isD_128K_8K_lL (Failed)
+	155 - t_icnR_128K_8K_l (Timeout)
+	157 - t_icnR_128K_8K_lL (Timeout)
+	158 - t_icnD_128K_8K_l (Timeout)
+	160 - t_icnD_128K_8K_lL (Timeout)
+	164 - t_isnR_128K_8K_l (Timeout)
+	166 - t_isnR_128K_8K_lL (Timeout)
+	167 - t_isnD_128K_8K_l (Timeout)
+	169 - t_isnD_128K_8K_lL (Timeout)
