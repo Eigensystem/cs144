@@ -1,0 +1,20 @@
+buildType:
+  default: debug
+  choices:
+    debug:
+      short: Debug
+      long: Emit debug information
+      buildType: Debug
+    release:
+      short: Release
+      long: Optimize generated code
+      buildType: Release
+    debug_asan:
+      short: DebugASan
+      long: debug plus sanitizers
+      buildType: DebugASan
+    rel_asan:
+      short: RelASan
+      long: full optimizations plus address and undefined-behavior sanitizers
+      buildType: RelASan
+    
