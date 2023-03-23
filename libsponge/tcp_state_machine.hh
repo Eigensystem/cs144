@@ -1,7 +1,15 @@
-#include "tcp_connection.hh"
+#ifndef SPONGE_LIBSPONGE_TCP_FSM_HH
+#define SPONGE_LIBSPONGE_TCP_FSM_HH
+
+#include "tcp_config.hh"
+#include "tcp_receiver.hh"
+#include "tcp_sender.hh"
+#include "tcp_state.hh"
 #include <string>
 
-enum class State {
+class TCPConnection;
+
+enum class TState {
   CLOSED,
   LISTEN,
   SYN_SENT,
@@ -16,48 +24,22 @@ enum class State {
   RESET,
 };
 
-ostream &operator<<(ostream &os, const TCP_State_Machine &item) {
-  string state_name;
-  if (item.state()==State::CLOSED)
-    state_name = "CLOSED";
-  else if (item.state()==State::LISTEN)
-    state_name = "LISTEN";
-  else if (item.state()==State::SYN_SENT)
-    state_name = "SYN_SENT";
-  else if (item.state()==State::SYN_RECEIVED)
-    state_name = "SYN_RECEIVED";
-  else if (item.state()==State::ESTABLISHED)
-    state_name = "ESTABLISHED";
-  else if (item.state()==State::CLOSE_WAIT)
-    state_name = "CLOSE_WAIT";
-  else if (item.state()==State::LAST_ACK)
-    state_name = "LAST_ACK";
-  else if (item.state()==State::FIN_WAIT_1)
-    state_name = "FIN_WAIT_1";
-  else if (item.state()==State::FIN_WAIT_2)
-    state_name = "FIN_WAIT_2";
-  else if (item.state()==State::CLOSING)
-    state_name = "CLOSING";
-  else if (item.state()==State::TIME_WAIT)
-    state_name = "TIME_WAIT";
-  else
-    state_name = "RESET";
-  os << "Current TCP state is: " << state_name << std::endl;
-  return os;
-}
 
 class TCP_State_Machine {
   private:
-    State _state{State::CLOSED};
+    TState _state{TState::CLOSED};
     bool _active{0};
 
   public:
     TCP_State_Machine() = default;
+    TCP_State_Machine(TState state) : _state(state) {}
+    TCP_State_Machine(TCP_State_Machine &&other) = default;
+    TCP_State_Machine &operator=(TCP_State_Machine &&other) = default;
     
-    State state() const { return _state; };
+    TState state() const { return _state; };
     
-    bool operator==(const State state) const;
-    bool operator!=(const State state) const;
+    bool operator==(const TState state) const;
+    bool operator!=(const TState state) const;
     bool active() const { return _active; }
     void send_segment(TCPConnection &conn, bool ack);
 
@@ -76,7 +58,7 @@ class TCP_State_Machine {
     void SYNrecvToFINwait1();
     
 //! Passive Close
-    // received FIN from remote
+    // received FIN from remote before sending FIN to remote
     void EstToCloseWait(TCPConnection &conn, const TCPSegment &seg);
     // send FIN after receiving FIN from remote
     void CloseWaitToLastACK();
@@ -100,3 +82,35 @@ class TCP_State_Machine {
 //! RESET
     void ToReset(TCPConnection &conn);
 };
+
+// std::ostream &operator<<(std::ostream &os, const TCP_State_Machine &item) {
+//   std::string state_name;
+//   if (item.state()==TState::CLOSED)
+//     state_name = "CLOSED";
+//   else if (item.state()==TState::LISTEN)
+//     state_name = "LISTEN";
+//   else if (item.state()==TState::SYN_SENT)
+//     state_name = "SYN_SENT";
+//   else if (item.state()==TState::SYN_RECEIVED)
+//     state_name = "SYN_RECEIVED";
+//   else if (item.state()==TState::ESTABLISHED)
+//     state_name = "ESTABLISHED";
+//   else if (item.state()==TState::CLOSE_WAIT)
+//     state_name = "CLOSE_WAIT";
+//   else if (item.state()==TState::LAST_ACK)
+//     state_name = "LAST_ACK";
+//   else if (item.state()==TState::FIN_WAIT_1)
+//     state_name = "FIN_WAIT_1";
+//   else if (item.state()==TState::FIN_WAIT_2)
+//     state_name = "FIN_WAIT_2";
+//   else if (item.state()==TState::CLOSING)
+//     state_name = "CLOSING";
+//   else if (item.state()==TState::TIME_WAIT)
+//     state_name = "TIME_WAIT";
+//   else
+//     state_name = "RESET";
+//   os << "Current TCP state is: " << state_name << std::endl;
+//   return os;
+// }
+
+#endif

@@ -4,8 +4,11 @@
 #include "tcp_config.hh"
 #include "tcp_receiver.hh"
 #include "tcp_sender.hh"
-#include "tcp_state_machine.hh"
 #include "tcp_state.hh"
+#include "tcp_state_machine.hh"
+
+class TCP_State_Machine;
+// enum class TState; 
 
 //! \brief A complete endpoint of a TCP connection
 class TCPConnection {
@@ -26,7 +29,7 @@ class TCPConnection {
 
     friend TCP_State_Machine;
     size_t _timewait{0};
-    TCP_State_Machine _fsm;
+    TCP_State_Machine _fsm{};
 
   public:
     //! \name "Input" interface for the writer
@@ -88,7 +91,7 @@ class TCPConnection {
     //!@}
 
     //! Construct a new connection from a configuration
-    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg} {}
+    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg}, _fsm{TState::CLOSED} {}
 
     //! \name construction and destruction
     //! moving is allowed; copying is disallowed; default construction not possible

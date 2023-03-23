@@ -22,9 +22,9 @@ class TCPReceiver {
 
     WrappingInt32 _isn;
     bool _syn = 0;
-    bool _fin = 0;
 
   public:
+    bool _fin = 0;
     //! \brief Construct a TCP receiver
     //!
     //! \param capacity the maximum number of bytes that the receiver will
