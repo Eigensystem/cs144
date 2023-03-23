@@ -25,8 +25,9 @@ void TCP_State_Machine::send_segment(TCPConnection &conn, bool ack) {
     }
   }
   if (seg.header().fin == 1) {
-    if (conn._receiver._fin == 0) EstToFINwait1();
-    else CloseWaitToLastACK();
+    if (conn._receiver._fin == 0 && state() == TState::ESTABLISHED) 
+      EstToFINwait1();
+    else if (state() == TState::CLOSE_WAIT) CloseWaitToLastACK();
   }
   conn._segments_out.push(seg);
   conn._sender.segments_out().pop();
@@ -39,6 +40,7 @@ void TCP_State_Machine::ClosedToListen() {
 }
 
 void TCP_State_Machine::ClosedToSYNsent(TCPConnection &conn) {
+  _active = 1;
   conn._sender.fill_window();
   send_segment(conn, false);
   _state = TState::SYN_SENT;
@@ -75,11 +77,12 @@ void TCP_State_Machine::SYNrecvToFINwait1() {
 
 //! Passive Close
 void TCP_State_Machine::EstToCloseWait(TCPConnection &conn, const TCPSegment &seg) {
+  conn._linger_after_streams_finish = 0;
   conn._sender.ack_received(seg.header().ackno, seg.header().win);
   conn._receiver.segment_received(seg);
+  if (conn._sender.segments_out().empty()) conn._sender.send_empty_segment();
   while (!conn._sender.segments_out().empty())
     send_segment(conn, true);
-  conn._linger_after_streams_finish = false;
   _state = TState::CLOSE_WAIT;
 }
 
@@ -113,6 +116,12 @@ void TCP_State_Machine::FINwait1ToClosing(TCPConnection &conn, const TCPSegment 
   _state = TState::CLOSING;
 }
 
+void TCP_State_Machine::ClosingToTimeWait(TCPConnection &conn, const TCPSegment &seg) {
+  conn._sender.ack_received(seg.header().ackno, seg.header().win);
+  conn._receiver.segment_received(seg);
+  _state = TState::TIME_WAIT;
+}
+
 void TCP_State_Machine::FINwait1ToTimeWait(TCPConnection &conn, const TCPSegment &seg) {
   conn._sender.ack_received(seg.header().ackno, seg.header().win);
   conn._receiver.segment_received(seg);
@@ -121,15 +130,17 @@ void TCP_State_Machine::FINwait1ToTimeWait(TCPConnection &conn, const TCPSegment
   _state = TState::TIME_WAIT;
 }
 
-void TCP_State_Machine::FINwait2ToTimeWait(TCPConnection &conn, const TCPSegment &seg) {
+void TCP_State_Machine::FINwait2ToTimeWait(TCPConnection &conn, const TCPSegment &seg, size_t &timer) {
   conn._sender.ack_received(seg.header().ackno, seg.header().win);
   conn._receiver.segment_received(seg);
   conn._sender.send_empty_segment();
   send_segment(conn, true);
+  timer = 0;
   _state = TState::TIME_WAIT;
 }
 
-void TCP_State_Machine::TimeWaitToClosed() {
+void TCP_State_Machine::TimeWaitToClosed(TCPConnection &conn) {
+  conn._linger_after_streams_finish = 0;
   _active = 0;
   _state = TState::CLOSED;
 }

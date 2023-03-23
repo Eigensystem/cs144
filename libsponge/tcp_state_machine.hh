@@ -28,7 +28,7 @@ enum class TState {
 class TCP_State_Machine {
   private:
     TState _state{TState::CLOSED};
-    bool _active{0};
+    bool _active = 0;
 
   public:
     TCP_State_Machine() = default;
@@ -59,6 +59,7 @@ class TCP_State_Machine {
     
 //! Passive Close
     // received FIN from remote before sending FIN to remote
+    //    or received retransmissional FIN during CloseWait
     void EstToCloseWait(TCPConnection &conn, const TCPSegment &seg);
     // send FIN after receiving FIN from remote
     void CloseWaitToLastACK();
@@ -72,12 +73,15 @@ class TCP_State_Machine {
     void FINwait1ToFINwait2(TCPConnection &conn, const TCPSegment &seg);
     // received FIN from remote after sending FIN but has not been ACKed yet
     void FINwait1ToClosing(TCPConnection &conn, const TCPSegment &seg);
+    // received ACK from remote after sending FIN and ACK remote's FIN
+    void ClosingToTimeWait(TCPConnection &conn, const TCPSegment &seg);
     // received ACK/FIN from remote after sending FIN
     void FINwait1ToTimeWait(TCPConnection &conn, const TCPSegment &seg);
     // received FIN from remote after sending FIN to remote and been ACKed
-    void FINwait2ToTimeWait(TCPConnection &conn, const TCPSegment &seg);
+    //    or received retransmissional FIN from remote during linger
+    void FINwait2ToTimeWait(TCPConnection &conn, const TCPSegment &seg, size_t &timer);
     // close after timeout
-    void TimeWaitToClosed();
+    void TimeWaitToClosed(TCPConnection &conn);
 
 //! RESET
     void ToReset(TCPConnection &conn);
